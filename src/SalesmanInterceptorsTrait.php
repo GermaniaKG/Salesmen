@@ -1,7 +1,7 @@
 <?php
 namespace Germania\Salesmen;
 
-trait SalesmanInterceptorsTrait SalesmanProviderTrait
+trait SalesmanInterceptorsTrait
 {
     use SalesmanProviderTrait;
 
