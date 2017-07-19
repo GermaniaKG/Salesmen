@@ -9,12 +9,17 @@ trait SalesmanInterceptorsTrait
     /**
      * Sets the Salesman ID.
      *
-     * @var     int|string $salesman_id
+     * @var     int|string|SalesmanProviderInterface $salesman
      * @return  self
      */
-    public function setSalesmanId( $salesman_id )
+    public function setSalesmanId( $salesman )
     {
-        $this->salesman_id = $salesman_id;
+        if ($salesman instanceOf SalesmanProviderInterface):
+            $this->salesman_id = $salesman->getSalesmanId();
+        else:
+            $this->salesman_id = $salesman;
+        endif;
+
         return $this;
     }
 }
