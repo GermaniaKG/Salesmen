@@ -49,6 +49,6 @@ class SalesmanFilterIterator extends \FilterIterator
         }
 
         // Check intersection
-        return array_intersect($this->salesman_filter, $item_salesman_id);
+        return !empty(array_intersect($this->salesman_filter, $item_salesman_id));
     }
 }
