@@ -10,7 +10,7 @@
 ## Installation
 
 ```bash
-composer require germania-kg/salesmen
+$ composer require germania-kg/salesmen
 ```
 
 ## Interfaces
@@ -45,7 +45,7 @@ public function getSalesmanId()
 
 ### SalesmanInterceptorsTrait
 
-Objects using this trait will provide anything that **SalesmanProviderTrait** provides, and additionally a setter method `setSalesmanId` which accepts anything; if **SalesmanProviderInterface** given here, *getSalesmanId* method will be called. Roughly outlined:
+Objects using this trait will provide anything that **SalesmanProviderTrait** provides, and additionally a setter method `setSalesmanId` which accepts anything; if **SalesmanProviderInterface** given here, *getSalesmanId* method will be called to obtain the ID to use. Roughly outlined:
 
 ```php
 use SalesmanProviderTrait;
@@ -94,7 +94,7 @@ echo $order->getSalesmanId(); // 34
 
 ## SalesmanFilterIterator
 
-The **SalesmanFilterIterator** class accepts any Iterator collection and a salesman ID (or ID array) or *SalesmanProviderInterface* instance to filter for. Collection items not being an instance of *SalesmanProviderInterface* are always ignored. 
+The **SalesmanFilterIterator** class accepts any *Iterator* collection and a salesman ID (or ID array) or *SalesmanProviderInterface* instance to filter for. Collection items not being an instance of *SalesmanProviderInterface* are always ignored. 
 
 **Iterator:**
 
@@ -111,6 +111,7 @@ The **SalesmanFilterIterator** class accepts any Iterator collection and a sales
 **Example:**
 
 ```php
+<?php
 use Germania\Salesmen\SalesmanFilterIterator;
 
 // Prepare some SalesmanProviderInterface instances:
