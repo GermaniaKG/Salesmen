@@ -57,7 +57,7 @@ $ cd Salesmen
 $ composer install
 ```
 
-## Testing
+## Unit tests
 
 Either copy `phpunit.xml.dist` to `phpunit.xml` and adapt to your needs, or leave as is. Run [PhpUnit](https://phpunit.de/) like this:
 
