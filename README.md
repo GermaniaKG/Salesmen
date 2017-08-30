@@ -157,7 +157,7 @@ echo iterator_count($filter);
 
 ## Issues
 
-- The *SalesmanFilterIterator* should also accept an array of SalesmanProviderInterface instances as filter value. Why not addressing this at #1.
+- The *SalesmanFilterIterator* should also accept an array of SalesmanProviderInterface instances as filter value. Why not addressing this at issue#1.
 
 Also see [full issues list.](https://github.com/GermaniaKG/Salesmen/issues)
 
