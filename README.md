@@ -155,6 +155,9 @@ $filter = new SalesmanFilterIterator( new \ArrayIterator( $orders ), $salesman);
 echo iterator_count($filter);
 ```
 
+## Issues
+
+See [issue list](/issues)
 
 
 ## Development
