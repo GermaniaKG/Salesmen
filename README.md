@@ -49,4 +49,19 @@ use SalesmanProviderTrait;
 public function setSalesmanId( $salesman )
 ```
 
+## Development
+
+```bash
+$ git clone https://github.com/GermaniaKG/Salesmen.git
+$ cd Salesmen
+$ composer install
+```
+
+## Testing
+
+Either copy `phpunit.xml.dist` to `phpunit.xml` and adapt to your needs, or leave as is. Run [PhpUnit](https://phpunit.de/) like this:
+
+```bash
+$ vendor/bin/phpunit
+```
 
