@@ -94,7 +94,21 @@ echo $order->getSalesmanId(); // 34
 
 ## SalesmanFilterIterator
 
-The **SalesmanFilterIterator** class accepts any Iterator collection and a salesman ID (or ID array) or *SalesmanProviderInterface* instance to filter for. Collection items not being an instance of *SalesmanProviderInterface* are always ignored. **Example:**
+The **SalesmanFilterIterator** class accepts any Iterator collection and a salesman ID (or ID array) or *SalesmanProviderInterface* instance to filter for. Collection items not being an instance of *SalesmanProviderInterface* are always ignored. 
+
+**Iterator:**
+
+- instances of *SalesmanProviderInterface*
+
+
+**Filter values:**
+
+- Integer or string ID
+- Array of integer or string IDs
+- One instance of *SalesmanProviderInterface*
+
+
+**Example:**
 
 ```php
 use Germania\Salesmen\SalesmanFilterIterator;
