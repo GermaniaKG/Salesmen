@@ -157,7 +157,7 @@ echo iterator_count($filter);
 
 ## Issues
 
-See [issue list](/issues)
+See [issue list](https://github.com/GermaniaKG/Salesmen/issues)
 
 
 ## Development
