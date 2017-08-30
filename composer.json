@@ -1,5 +1,6 @@
 {
 	"name": "germania-kg/salesmen",
+	"description": "Work with Salesman IDs: Interfaces, Traits, FilterIterator",
 
 	"license": "proprietary",
 	"authors": [
@@ -19,8 +20,6 @@
       "psr-4": { "tests\\": "tests/src" }
   },
 
-	"require": {
-	},
 	"require-dev": {
 		"satooshi/php-coveralls": "^1.0",
 		"phpunit/phpunit": "^5.5"
