@@ -33,11 +33,36 @@ class SalesmanFilterIteratorTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideFilterValuesAndResults
      */
-    public function testValuesAndResultCount( $filter_value, $result_count )
+    public function testPrimitiveFilterValuesAndResultCount( $filter_value, $result_count )
     {
         $sut = new SalesmanFilterIterator($this->collection, $filter_value);
 
         $this->assertEquals($result_count, iterator_count($sut));
+    }
+
+    /**
+     * @dataProvider provideFilterValuesAndResults
+     */
+    public function testSalesmanProviderInterfaceFilterValuesAndResultCount( $filter_value, $expected_result_count )
+    {
+        $provider = $this->prophesize( SalesmanProviderInterface::class );
+        $provider->getSalesmanId()->willReturn( $filter_value );
+
+        $sut = new SalesmanFilterIterator($this->collection, $provider->reveal() );
+        $this->assertEquals($expected_result_count, iterator_count($sut));
+
+    }
+
+
+    /**
+     * @dataProvider provideFilterValuesAndResults
+     */
+    public function testEmptyResultList( $filter_value, $expected_result_count )
+    {
+        $invalid = [ 'Not_a_SalesmanProviderInterface' ];
+
+        $sut = new SalesmanFilterIterator(new \ArrayIterator( $invalid ), $filter_value);
+        $this->assertEquals(0, iterator_count($sut));
     }
 
 
