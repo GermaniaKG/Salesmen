@@ -105,7 +105,7 @@ The **SalesmanFilterIterator** class accepts any *Iterator* collection and a sal
 
 - Integer or string ID
 - Array of integer or string IDs
-- One instance of *SalesmanProviderInterface*
+- One instance of *SalesmanProviderInterface* – also see [issue #1][i1]
 
 
 **Example:**
