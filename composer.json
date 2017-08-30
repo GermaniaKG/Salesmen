@@ -2,7 +2,8 @@
 	"name": "germania-kg/salesmen",
 	"description": "Work with Salesman IDs: Interfaces, Traits, FilterIterator",
 
-	"license": "proprietary",
+	"license": "MIT",
+
 	"authors": [
 		{
 			"name": "Carsten Witt",
