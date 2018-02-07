@@ -3,7 +3,7 @@ namespace tests;
 
 use Germania\Salesmen\SalesmanProviderTrait;
 
-class SalesmanProviderTraitTest extends \PHPUnit_Framework_TestCase
+class SalesmanProviderTraitTest extends \PHPUnit\Framework\TestCase
 {
     public function testGetInterceptor()
     {

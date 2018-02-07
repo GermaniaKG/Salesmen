@@ -1,13 +1,11 @@
 <?php
 namespace Germania\Salesmen;
 
-interface SalesmanProviderInterface
+/**
+ * BC Alias for SalesmanIdProviderInterface
+ */
+interface SalesmanProviderInterface extends SalesmanIdProviderInterface
 {
 
-    /**
-     * Returns the Salesman ID.
-     *
-     * @return int|string
-     */
-    public function getSalesmanId();
+
 }

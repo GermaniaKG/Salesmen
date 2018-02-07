@@ -2,23 +2,23 @@
 namespace tests;
 
 use Germania\Salesmen\SalesmanFilterIterator;
-use Germania\Salesmen\SalesmanProviderInterface;
+use Germania\Salesmen\SalesmanIdProviderInterface;
 
 
-class SalesmanFilterIteratorTest extends \PHPUnit_Framework_TestCase
+class SalesmanFilterIteratorTest extends \PHPUnit\Framework\TestCase
 {
 
     public $collection;
 
     public function setUp()
     {
-        $provider1 = $this->prophesize( SalesmanProviderInterface::class );
+        $provider1 = $this->prophesize( SalesmanIdProviderInterface::class );
         $provider1->getSalesmanId()->willReturn( 1 );
 
-        $provider2 = $this->prophesize( SalesmanProviderInterface::class );
+        $provider2 = $this->prophesize( SalesmanIdProviderInterface::class );
         $provider2->getSalesmanId()->willReturn( 2 );
 
-        $provider3 = $this->prophesize( SalesmanProviderInterface::class );
+        $provider3 = $this->prophesize( SalesmanIdProviderInterface::class );
         $provider3->getSalesmanId()->willReturn( array(2, "3") );
 
         $this->collection = new \ArrayIterator([
@@ -45,7 +45,7 @@ class SalesmanFilterIteratorTest extends \PHPUnit_Framework_TestCase
      */
     public function testSalesmanProviderInterfaceFilterValuesAndResultCount( $filter_value, $expected_result_count )
     {
-        $provider = $this->prophesize( SalesmanProviderInterface::class );
+        $provider = $this->prophesize( SalesmanIdProviderInterface::class );
         $provider->getSalesmanId()->willReturn( $filter_value );
 
         $sut = new SalesmanFilterIterator($this->collection, $provider->reveal() );
