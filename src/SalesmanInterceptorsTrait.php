@@ -1,25 +1,11 @@
 <?php
 namespace Germania\Salesmen;
 
+/**
+ * BC Alias for SalesmanIdAwareTrait
+ */
 trait SalesmanInterceptorsTrait
 {
-    use SalesmanProviderTrait;
+    use SalesmanIdAwareTrait;
 
-
-    /**
-     * Sets the Salesman ID.
-     *
-     * @var     int|string|SalesmanProviderInterface $salesman
-     * @return  self
-     */
-    public function setSalesmanId( $salesman )
-    {
-        if ($salesman instanceOf SalesmanProviderInterface):
-            $this->salesman_id = $salesman->getSalesmanId();
-        else:
-            $this->salesman_id = $salesman;
-        endif;
-
-        return $this;
-    }
 }

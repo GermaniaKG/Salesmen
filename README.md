@@ -15,23 +15,28 @@ $ composer require germania-kg/salesmen
 
 ## Interfaces
 
-### SalesmanProviderInterface
+### SalesmanIdProviderInterface
+
+**Deprecated name: SalesmanProviderInterface**
 
 ```php
 public function getSalesmanId()
 ```
 
-### SalesmanInterceptorsInterface
+### SalesmanIdAwareInterface
 
+**Deprecated name: SalesmanInterceptorsInterface**
 
 ```php
-extends SalesmanProviderInterface
+extends SalesmanIdProviderInterface
 public function setSalesmanId( $id )
 ```
 
 ## Traits
 
-### SalesmanProviderTrait
+### SalesmanIdProviderTrait
+
+**Deprecated name: SalesmanProviderTrait**
 
 Objects using this trait will provide a `salesman_id` attribute and a `getSalesmanId` getter method, as outlined here:
 
@@ -41,16 +46,20 @@ public function getSalesmanId()
 ```
 
 
+### SalesmanIdAwareTrait
 
+**Depcrecated name: SalesmanInterceptorsTrait**
 
-### SalesmanInterceptorsTrait
-
-Objects using this trait will provide anything that **SalesmanProviderTrait** provides, and additionally a setter method `setSalesmanId` which accepts anything; if **SalesmanProviderInterface** given here, *getSalesmanId* method will be called to obtain the ID to use. Roughly outlined:
+Objects using this trait will provide anything that **SalesmanIdProviderTrait** provides, and additionally a setter method `setSalesmanId` which accepts anything; if **SalesmanIdProviderInterface** given here, *getSalesmanId* method will be called to obtain the ID to use. Roughly outlined:
 
 ```php
-use SalesmanProviderTrait;
+use SalesmanIdProviderTrait;
 public function setSalesmanId( $salesman )
 ```
+
+
+
+
 
 
 

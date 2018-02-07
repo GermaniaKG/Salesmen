@@ -2,7 +2,9 @@
 namespace tests;
 
 use Germania\Salesmen\SalesmanInterceptorsTrait;
+use Germania\Salesmen\SalesmanIdAwareTrait;
 use Germania\Salesmen\SalesmanProviderInterface;
+use Germania\Salesmen\SalesmanIdProviderInterface;
 
 class SalesmanInterceptorsTraitTest extends \PHPUnit\Framework\TestCase
 {
@@ -19,7 +21,8 @@ class SalesmanInterceptorsTraitTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals( $salesman_id, $mock->getSalesmanId());
     }
 
-    public function testSetterWithRetailerNumberProviderInterface()
+
+    public function testBCSetterWithRetailerNumberProviderInterface()
     {
         $mock = $this->getMockForTrait(SalesmanInterceptorsTrait::class);
 
@@ -28,6 +31,22 @@ class SalesmanInterceptorsTraitTest extends \PHPUnit\Framework\TestCase
         $this->assertNotEquals( $salesman_id, $mock->getSalesmanId());
 
         $provider = $this->prophesize( SalesmanProviderInterface::class );
+        $provider->getSalesmanId()->willReturn( $salesman_id );
+        $mock->setSalesmanId( $provider->reveal() );
+
+        $this->assertEquals( $salesman_id, $mock->getSalesmanId());
+    }
+
+
+    public function testSetterWithRetailerNumberProviderInterface()
+    {
+        $mock = $this->getMockForTrait(SalesmanIdAwareTrait::class);
+
+        // Make sure we are really changing the number here
+        $salesman_id = 3;
+        $this->assertNotEquals( $salesman_id, $mock->getSalesmanId());
+
+        $provider = $this->prophesize( SalesmanIdProviderInterface::class );
         $provider->getSalesmanId()->willReturn( $salesman_id );
         $mock->setSalesmanId( $provider->reveal() );
 

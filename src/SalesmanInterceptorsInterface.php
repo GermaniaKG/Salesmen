@@ -1,14 +1,10 @@
 <?php
 namespace Germania\Salesmen;
 
-interface SalesmanInterceptorsInterface extends SalesmanProviderInterface
+/**
+ * BC Alias for SalesmanIdAwareInterface
+ */
+interface SalesmanInterceptorsInterface extends SalesmanIdAwareInterface
 {
 
-    /**
-     * Sets the Salesman ID.
-     *
-     * @var     int|string $salesman_id
-     * @return  self
-     */
-    public function setSalesmanId( $id );
 }

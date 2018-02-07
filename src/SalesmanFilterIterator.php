@@ -17,7 +17,7 @@ class SalesmanFilterIterator extends \FilterIterator
     public function __construct( \Traversable $collection, $salesman_filter )
     {
         // Allow for getSalesmanId
-        $this->salesman_filter = $salesman_filter instanceOf SalesmanProviderInterface
+        $this->salesman_filter = ($salesman_filter instanceOf SalesmanProviderInterface or $salesman_filter instanceOf SalesmanIdProviderInterface)
         ? $salesman_filter->getSalesmanId()
         : $salesman_filter;
 
@@ -37,8 +37,8 @@ class SalesmanFilterIterator extends \FilterIterator
     {
         $item = $this->getInnerIterator()->current();
 
-        // Disclose items not implementing SalesmanProviderInterface
-        if (!$item instanceOf SalesmanProviderInterface) {
+        // Disclose items not implementing SalesmanIdProviderInterface
+        if (!$item instanceOf SalesmanIdProviderInterface and !$item instanceOf SalesmanProviderInterface) {
             return false;
         }
 
