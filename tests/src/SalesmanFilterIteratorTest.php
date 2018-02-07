@@ -5,7 +5,7 @@ use Germania\Salesmen\SalesmanFilterIterator;
 use Germania\Salesmen\SalesmanProviderInterface;
 
 
-class SalesmanFilterIteratorTest extends \PHPUnit_Framework_TestCase
+class SalesmanFilterIteratorTest extends \PHPUnit\Framework\TestCase
 {
 
     public $collection;
