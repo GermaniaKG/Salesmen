@@ -4,7 +4,7 @@ namespace tests;
 use Germania\Salesmen\SalesmanInterceptorsTrait;
 use Germania\Salesmen\SalesmanProviderInterface;
 
-class SalesmanInterceptorsTraitTest extends \PHPUnit_Framework_TestCase
+class SalesmanInterceptorsTraitTest extends \PHPUnit\Framework\TestCase
 {
     public function testGetterAndSetter()
     {
