@@ -3,7 +3,7 @@ namespace Germania\Salesmen;
 
 use Psr\Container\ContainerInterface;
 
-class PdoSalesmen implements ContainerInterface, \IteratorAggregate, \Countable
+class PdoActiveSalesmen implements ContainerInterface, \IteratorAggregate, \Countable
 {
     /**
      * @var \PDO
