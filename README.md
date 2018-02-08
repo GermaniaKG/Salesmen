@@ -17,15 +17,11 @@ $ composer require germania-kg/salesmen
 
 ### SalesmanIdProviderInterface
 
-**Deprecated name: SalesmanProviderInterface**
-
 ```php
 public function getSalesmanId()
 ```
 
 ### SalesmanIdAwareInterface
-
-**Deprecated name: SalesmanInterceptorsInterface**
 
 ```php
 extends SalesmanIdProviderInterface
@@ -36,8 +32,6 @@ public function setSalesmanId( $id )
 
 ### SalesmanIdProviderTrait
 
-**Deprecated name: SalesmanProviderTrait**
-
 Objects using this trait will provide a `salesman_id` attribute and a `getSalesmanId` getter method, as outlined here:
 
 ```php
@@ -47,8 +41,6 @@ public function getSalesmanId()
 
 
 ### SalesmanIdAwareTrait
-
-**Depcrecated name: SalesmanInterceptorsTrait**
 
 Objects using this trait will provide anything that **SalesmanIdProviderTrait** provides, and additionally a setter method `setSalesmanId` which accepts anything; if **SalesmanIdProviderInterface** given here, *getSalesmanId* method will be called to obtain the ID to use. Roughly outlined:
 
@@ -66,12 +58,12 @@ public function setSalesmanId( $salesman )
 ## Examples
 ```php
 <?php
-use Germania\Salesmen\SalesmanProviderInterface;
-use Germania\Salesmen\SalesmanProviderTrait;
+use Germania\Salesmen\SalesmanIdProviderInterface;
+use Germania\Salesmen\SalesmanIdProviderTrait;
 
-class Salesman implements SalesmanProviderInterface
+class Salesman implements SalesmanIdProviderInterface
 {
-	use SalesmanProviderTrait;
+	use SalesmanIdProviderTrait;
 	
 	public function __construct( $salesman_id )
 	{
@@ -85,12 +77,12 @@ echo $salesman->getSalesmanId(); // 99
 
 ```php
 <?php
-use Germania\Salesmen\SalesmanInterceptorsInterface;
-use Germania\Salesmen\SalesmanInterceptorsTrait;
+use Germania\Salesmen\ SalesmanIdAwareInterface;
+use Germania\Salesmen\SalesmanIdAwareTrait;
 
-class MyOrder implements SalesmanInterceptorsInterface
+class MyOrder implements SalesmanIdAwareInterface
 {
-	use SalesmanInterceptorsTrait;
+	use SalesmanIdAwareTrait;
 }
 
 $order  = new MyOrder;
@@ -103,18 +95,18 @@ echo $order->getSalesmanId(); // 34
 
 ## SalesmanFilterIterator
 
-The **SalesmanFilterIterator** class accepts any *Iterator* collection and a salesman ID (or ID array) or *SalesmanProviderInterface* instance to filter for. Collection items not being an instance of *SalesmanProviderInterface* are always ignored. 
+The **SalesmanFilterIterator** class accepts any *Iterator* collection and a salesman ID (or ID array) or *SalesmanIdProviderInterface* instance to filter for. Collection items not being an instance of *SalesmanIdProviderInterface* are always ignored. 
 
 **Iterator:**
 
-- instances of *SalesmanProviderInterface*
+- instances of *SalesmanIdProviderInterface*
 
 
 **Filter values:**
 
 - Integer or string ID
 - Array of integer or string IDs
-- One instance of *SalesmanProviderInterface* – also see [issue #1][i1]
+- One instance of *SalesmanIdProviderInterface* – also see [issue #1][i1]
 
 
 **Example:**
@@ -123,7 +115,7 @@ The **SalesmanFilterIterator** class accepts any *Iterator* collection and a sal
 <?php
 use Germania\Salesmen\SalesmanFilterIterator;
 
-// Prepare some SalesmanProviderInterface instances:
+// Prepare some SalesmanIdProviderInterface instances:
 $order1 = new MyOrder; 
 $order1->setSalesmanId( 1 );
 
@@ -154,7 +146,7 @@ echo iterator_count($filter);
 
 
 // ---------------------------------------
-// Filter by SalesmanProviderInterface:
+// Filter by SalesmanIdProviderInterface:
 // ---------------------------------------
 
 $salesman = new Salesman( 1 );
@@ -166,7 +158,7 @@ echo iterator_count($filter);
 
 ## Issues
 
-- The *SalesmanFilterIterator* should also accept an array of *SalesmanProviderInterface* instances as filter value. See [issue #1][i1].
+- The *SalesmanFilterIterator* should also accept an array of *SalesmanIdProviderInterface* instances as filter value. See [issue #1][i1].
 
 Also see [full issues list.][i0]
 
