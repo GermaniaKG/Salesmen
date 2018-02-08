@@ -1,13 +1,13 @@
 <?php
 namespace tests;
 
-use Germania\Salesmen\SalesmanProviderTrait;
+use Germania\Salesmen\SalesmanIdProviderTrait;
 
-class SalesmanProviderTraitTest extends \PHPUnit\Framework\TestCase
+class SalesmanIdProviderTraitTest extends \PHPUnit\Framework\TestCase
 {
     public function testGetInterceptor()
     {
-        $mock = $this->getMockForTrait(SalesmanProviderTrait::class);
+        $mock = $this->getMockForTrait(SalesmanIdProviderTrait::class);
 
         $salesman_id = 3;
 

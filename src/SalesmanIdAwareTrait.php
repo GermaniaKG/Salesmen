@@ -8,7 +8,7 @@ trait SalesmanIdAwareTrait
     /**
      * Sets the Salesman ID.
      *
-     * @var     int|string|SalesmanProviderInterface $salesman
+     * @var     int|string|SalesmanIdProviderInterface $salesman
      * @return  self
      */
     public function setSalesmanId( $salesman )
