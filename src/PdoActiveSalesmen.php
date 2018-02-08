@@ -12,7 +12,7 @@ class PdoActiveSalesmen implements ContainerInterface, \IteratorAggregate, \Coun
 
     public $table = "salesmen";
 
-    public $array = array();
+    public $salesmen = array();
 
     public function __construct (\PDO $pdo, $table, SalesmanInterface $salesman = null)
     {
@@ -45,31 +45,45 @@ class PdoActiveSalesmen implements ContainerInterface, \IteratorAggregate, \Coun
 
         $bool = $this->stmt->execute();
 
-        $this->array = $this->stmt->fetchAll( \PDO::FETCH_UNIQUE);
+        $this->salesmen = $this->stmt->fetchAll( \PDO::FETCH_UNIQUE);
     }
 
 
+    /**
+     * @implements ContainerInterface
+     */
     public function has ($aussendienst_nummer) {
-        return array_key_exists($aussendienst_nummer, $this->array);
+        return array_key_exists($aussendienst_nummer, $this->salesmen);
     }
 
 
+    /**
+     * @implements ContainerInterface
+     */
     public function get ($aussendienst_nummer) {
         if (!$this->has($aussendienst_nummer)) {
             $msg = sprintf("Could not find Salesman with ADM-Nummer '%s'", $aussendienst_nummer);
             throw new SalesmanNotFoundException( $msg );
         }
 
-        return $this->array[$aussendienst_nummer];
+        return $this->salesmen[$aussendienst_nummer];
     }
 
+
+    /**
+     * @return Iterator
+     */
     public function getIterator()
     {
-        return new \ArrayIterator( $this->array );
+        return new \ArrayIterator( $this->salesmen );
     }
 
+
+    /**
+     * @return int
+     */
     public function count()
     {
-        return count( $this->array );
+        return count( $this->salesmen );
     }
 }
