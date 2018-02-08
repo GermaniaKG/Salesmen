@@ -20,6 +20,10 @@
   "autoload-dev": {
       "psr-4": { "tests\\": "tests/src" }
   },
+	"require": {
+		"germania-kg/retailers": "^1.1",
+		"psr/container": "^1.0"
+	},
 
 	"require-dev": {
 		"satooshi/php-coveralls": "^1.0",

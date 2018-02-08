@@ -4,8 +4,96 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "801f7ce4776d5a939be2005433edd5ad",
-    "packages": [],
+    "content-hash": "9b57e81d3243970d058a14ceca0b81d2",
+    "packages": [
+        {
+            "name": "germania-kg/retailers",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GermaniaKG/Retailers.git",
+                "reference": "10d7d8a650ff3197d7ef12828d79d6af7086ad51"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GermaniaKG/Retailers/zipball/10d7d8a650ff3197d7ef12828d79d6af7086ad51",
+                "reference": "10d7d8a650ff3197d7ef12828d79d6af7086ad51",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.5",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Germania\\Retailers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Carsten Witt",
+                    "email": "carstenwitt@germania-kg.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Work with Retailers: Interfaces, Traits, FilterIterator",
+            "time": "2017-08-30T12:05:32+00:00"
+        },
+        {
+            "name": "psr/container",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "time": "2017-02-14T16:28:37+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
