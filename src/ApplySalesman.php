@@ -26,7 +26,7 @@ class ApplySalesman
 
 
     /**
-     * @param  object $aggregator Object that
+     * @param  SalesmanIdProviderInterface|StdClass $aggregator Object that provides a salesman_id
      * @return bool
      */
     public function __invoke( $aggregator )
