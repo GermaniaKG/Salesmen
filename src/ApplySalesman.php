@@ -26,20 +26,21 @@ class ApplySalesman
 
 
     /**
-     * @param  object $aggregator Object that
+     * @param  SalesmanIdProviderInterface|StdClass $aggregator Object that provides a salesman_id
      * @return bool
      */
     public function __invoke( $aggregator )
     {
 
-        // Default value
+
+        // Prepare callable
+        $salesman_factory = $this->salesman_factory;
+
+
+        // Add salesman proporty if not exists
         if (!isset($aggregator->salesman)):
             $aggregator->salesman = null;
         endif;
-
-
-        // Prepare using
-        $salesman_factory = $this->salesman_factory;
 
 
         // If salesman_id is available
