@@ -1,4 +1,4 @@
-# Germania\Salesmen
+# Germania KG · Salesmen
 
 
 [![Build Status](https://travis-ci.org/GermaniaKG/Salesmen.svg?branch=master)](https://travis-ci.org/GermaniaKG/Salesmen)
