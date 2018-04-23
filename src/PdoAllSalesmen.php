@@ -61,6 +61,7 @@ class PdoAllSalesmen implements ContainerInterface, \IteratorAggregate, \Countab
         endif;
 
         $this->salesmen = $this->stmt->fetchAll( \PDO::FETCH_UNIQUE);
+
     }
 
 

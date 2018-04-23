@@ -8,7 +8,9 @@ class PdoActiveSalesmen extends PdoAllSalesmen
     {
         parent::__construct( $pdo, $table, $salesman);
 
-        $this->salesmen = iterator_to_array( new ActiveSalesmanFilterIterator( $this->getIterator(), true) );
+        $filtered = new ActiveSalesmanFilterIterator( $this->getIterator(), true);
+
+        $this->salesmen = iterator_to_array( $filtered );
     }
 
 }
