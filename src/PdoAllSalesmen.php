@@ -3,6 +3,7 @@ namespace Germania\Salesmen;
 
 use Psr\Container\ContainerInterface;
 use Germania\Salesmen\Exceptions\SalesmanNotFoundException;
+use Germania\Salesmen\Exceptions\SalesmanDatabaseException;
 
 class PdoAllSalesmen implements ContainerInterface, \IteratorAggregate, \Countable
 {
@@ -44,7 +45,10 @@ class PdoAllSalesmen implements ContainerInterface, \IteratorAggregate, \Countab
 
         $this->stmt->setFetchMode( \PDO::FETCH_CLASS, $salesman ? get_class($salesman) : Salesman::class );
 
-        $bool = $this->stmt->execute();
+        if (!$this->stmt->execute())
+        {
+            throw new SalesmanDatabaseException("Could not execute SQL query");
+        }
 
         $this->salesmen = $this->stmt->fetchAll( \PDO::FETCH_UNIQUE);
     }
