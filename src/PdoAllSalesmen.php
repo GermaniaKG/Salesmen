@@ -45,10 +45,9 @@ class PdoAllSalesmen implements ContainerInterface, \IteratorAggregate, \Countab
 
         $this->stmt->setFetchMode( \PDO::FETCH_CLASS, $salesman ? get_class($salesman) : Salesman::class );
 
-        if (!$this->stmt->execute())
-        {
+        if (!$this->stmt->execute()):
             throw new SalesmanDatabaseException("Could not execute SQL query");
-        }
+        endif;
 
         $this->salesmen = $this->stmt->fetchAll( \PDO::FETCH_UNIQUE);
     }
