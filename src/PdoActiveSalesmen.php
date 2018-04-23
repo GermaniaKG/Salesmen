@@ -1,9 +1,6 @@
 <?php
 namespace Germania\Salesmen;
 
-use Psr\Container\ContainerInterface;
-use Germania\Salesmen\Exceptions\SalesmanNotFoundException;
-
 class PdoActiveSalesmen extends PdoAllSalesmen
 {
 
