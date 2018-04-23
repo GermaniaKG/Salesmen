@@ -23,11 +23,11 @@ class PdoActiveSalesmen implements ContainerInterface, \IteratorAggregate, \Coun
         // aussendienst_nummer ID is listed twice here in order to use it with FETCH_UNIQUE as array key
         $sql = "SELECT
         aussendienst_nummer,
-        aussendienst_nummer as salesman_id,
-        aussendienst_vorname as first_name,
-        aussendienst_nachname as last_name,
-        aussendienst_retailer_number as retailer_number,
-        aussendienst_email as email,
+        aussendienst_nummer          AS salesman_id,
+        aussendienst_vorname         AS first_name,
+        aussendienst_nachname        AS last_name,
+        aussendienst_retailer_number AS retailer_number,
+        aussendienst_email           AS email,
         user_id,
         is_active
 
