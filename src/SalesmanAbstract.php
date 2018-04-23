@@ -73,7 +73,7 @@ class SalesmanAbstract implements SalesmanInterface
      * @return bool
      */
     public function isActive() {
-        return (bool) $this->is_active > 0;
+        return (bool) ((int) $this->is_active > 0);
     }
 
 

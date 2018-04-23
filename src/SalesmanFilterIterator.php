@@ -12,7 +12,7 @@ class SalesmanFilterIterator extends \FilterIterator
 
     /**
      * @param \Traversable $collection      Collection of SalesmanIdProviderInterface
-     * @param array|int    $salesman_filter The Salesman ID to filter for
+     * @param SalesmanIdProviderInterface|SalesmanIdProviderInterface[]|int    $salesman_filter The Salesman ID to filter for
      */
     public function __construct( \Traversable $collection, $salesman_filter )
     {

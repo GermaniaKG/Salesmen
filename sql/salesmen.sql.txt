@@ -1,0 +1,25 @@
+DROP TABLE IF EXISTS `salesmen`;
+
+CREATE TABLE `salesmen` (
+  `aussendienst_nummer` int(11) unsigned NOT NULL,
+  `aussendienst_vorname` varchar(255) DEFAULT NULL,
+  `aussendienst_nachname` varchar(255) DEFAULT NULL,
+  `aussendienst_retailer_number` varchar(12) DEFAULT NULL,
+  `aussendienst_email` varchar(255) DEFAULT NULL,
+  `user_id` int(11) unsigned DEFAULT NULL,
+  `is_active` int(2) DEFAULT '1',
+  PRIMARY KEY (`aussendienst_nummer`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+LOCK TABLES `salesmen` WRITE;
+
+
+INSERT INTO `salesmen` (`aussendienst_nummer`, `aussendienst_vorname`, `aussendienst_nachname`, `aussendienst_retailer_number`, `aussendienst_email`, `user_id`, `is_active`)
+VALUES
+	(1,'Manfred','Mustermann','99','test1@test.com',1,1),
+	(2,'Gisela','Musterfrau','88','test2@test.com',2,-1),
+	(3,'John','Doe','77','test3@test.com',2,0);
+
+
+UNLOCK TABLES;
+

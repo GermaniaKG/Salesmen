@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="PHPUNIT">
+	<table_data name="salesmen">
+		<row>
+			<field name="aussendienst_nummer">55</field>
+			<field name="aussendienst_vorname">Hans</field>
+			<field name="aussendienst_nachname">Mustermann</field>
+			<field name="aussendienst_retailer_number">99999</field>
+			<field name="aussendienst_email">test@test.com</field>
+			<field name="user_id">99</field>
+			<field name="is_active">1</field>
+		</row>
+
+		<row>
+			<field name="aussendienst_nummer">44</field>
+			<field name="aussendienst_vorname">Christina</field>
+			<field name="aussendienst_nachname">Musterfrau</field>
+			<field name="aussendienst_retailer_number">88888</field>
+			<field name="aussendienst_email">test2@test.com</field>
+			<field name="user_id">88</field>
+			<field name="is_active">-1</field>
+		</row>
+	</table_data>
+</database>
+</mysqldump>
