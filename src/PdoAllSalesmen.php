@@ -18,6 +18,7 @@ class PdoAllSalesmen implements ContainerInterface, \IteratorAggregate, \Countab
     public $table = "salesmen";
 
     /**
+     * Holds all retrieved SalesmenInterface instances
      * @var SalesmanInterface[]
      */
     public $salesmen = array();
