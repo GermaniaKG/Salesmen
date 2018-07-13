@@ -18,6 +18,7 @@ class PdoAllSalesmen implements ContainerInterface, \IteratorAggregate, \Countab
     public $table = "salesmen";
 
     /**
+     * Holds all retrieved SalesmenInterface instances
      * @var SalesmanInterface[]
      */
     public $salesmen = array();
@@ -69,6 +70,9 @@ class PdoAllSalesmen implements ContainerInterface, \IteratorAggregate, \Countab
      * @implements ContainerInterface
      */
     public function has ($aussendienst_nummer) {
+        if ($aussendienst_nummer instanceOf SalesmanIdProviderInterface) {
+            $aussendienst_nummer = $aussendienst_nummer->getSalesmanId();
+        }
         return array_key_exists($aussendienst_nummer, $this->salesmen);
     }
 
@@ -77,6 +81,10 @@ class PdoAllSalesmen implements ContainerInterface, \IteratorAggregate, \Countab
      * @implements ContainerInterface
      */
     public function get ($aussendienst_nummer) {
+        if ($aussendienst_nummer instanceOf SalesmanIdProviderInterface) {
+            $aussendienst_nummer = $aussendienst_nummer->getSalesmanId();
+        }
+
         if (!$this->has($aussendienst_nummer)) {
             $msg = sprintf("Could not find Salesman with ADM-Nummer '%s'", $aussendienst_nummer);
             throw new SalesmanNotFoundException( $msg );
