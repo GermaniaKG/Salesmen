@@ -1,11 +1,11 @@
 <?php
 namespace Germania\Salesmen;
 
-use Germania\Retailers\RetailerNumberInterceptorsTrait;
+use Germania\Retailers\RetailerNumberAwareTrait;
 
 class SalesmanAbstract implements SalesmanInterface
 {
-    use RetailerNumberInterceptorsTrait,
+    use RetailerNumberAwareTrait,
         SalesmanIdAwareTrait;
 
     /**
