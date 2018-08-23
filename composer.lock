@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "75e1d39277d7b0bff10002461831c909",
+    "content-hash": "04e6edd333097492de68590c35ce7eb3",
     "packages": [
         {
             "name": "germania-kg/retailers",
-            "version": "1.2.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GermaniaKG/Retailers.git",
-                "reference": "c4e34c0ae84ada0130d5533d4c1f7d443f8f7727"
+                "reference": "a93cf37776b39fd32222bf03216b9d220806e883"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GermaniaKG/Retailers/zipball/c4e34c0ae84ada0130d5533d4c1f7d443f8f7727",
-                "reference": "c4e34c0ae84ada0130d5533d4c1f7d443f8f7727",
+                "url": "https://api.github.com/repos/GermaniaKG/Retailers/zipball/a93cf37776b39fd32222bf03216b9d220806e883",
+                "reference": "a93cf37776b39fd32222bf03216b9d220806e883",
                 "shasum": ""
             },
             "require-dev": {
@@ -42,7 +42,7 @@
                 }
             ],
             "description": "Work with Retailers: Interfaces, Traits, FilterIterator",
-            "time": "2018-08-22T07:58:51+00:00"
+            "time": "2018-08-23T11:11:48+00:00"
         },
         {
             "name": "psr/container",
