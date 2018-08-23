@@ -21,7 +21,7 @@
       "psr-4": { "tests\\": "tests/src" }
   },
 	"require": {
-		"germania-kg/retailers": "^1.2",
+		"germania-kg/retailers": "^1.2|^2.0",
 		"psr/container": "^1.0"
 	},
 
