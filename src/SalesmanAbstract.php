@@ -34,6 +34,21 @@ class SalesmanAbstract implements SalesmanInterface
     public $is_active;
 
 
+
+    /**
+     * @return array
+     */
+    public function __debugInfo() {
+        return [
+            'SalesmanID' => $this->getSalesmanId(),
+            'FullName'   => $this->getFullName(),
+            'Email'      => $this->getEmail(),
+            'isActive'   => $this->isActive(),
+            'UserID'     => $this->getUserId()
+        ];
+    }
+
+
     /**
      * @return string
      */

@@ -15,6 +15,11 @@ class PdoAllSalesmen implements ContainerInterface, \IteratorAggregate, \Countab
     /**
      * @var string
      */
+    public $php_salesman_class;
+
+    /**
+     * @var string
+     */
     public $table = "salesmen";
 
     /**
@@ -32,6 +37,7 @@ class PdoAllSalesmen implements ContainerInterface, \IteratorAggregate, \Countab
     {
         $this->table    = $table;
         $this->pdo      = $pdo;
+        $this->php_salesman_class = $salesman ? get_class($salesman) : Salesman::class;
 
         // aussendienst_nummer ID is listed twice here in order to use it with FETCH_UNIQUE as array key
         $sql = "SELECT
@@ -55,7 +61,7 @@ class PdoAllSalesmen implements ContainerInterface, \IteratorAggregate, \Countab
 
         $this->stmt = $pdo->prepare( $sql );
 
-        $this->stmt->setFetchMode( \PDO::FETCH_CLASS, $salesman ? get_class($salesman) : Salesman::class );
+        $this->stmt->setFetchMode( \PDO::FETCH_CLASS, $this->php_salesman_class );
 
         if (!$this->stmt->execute()):
             throw new SalesmanDatabaseException("PdoAllSalesmen: Could not execute SQL query");
@@ -65,6 +71,17 @@ class PdoAllSalesmen implements ContainerInterface, \IteratorAggregate, \Countab
 
     }
 
+
+    /**
+     * @return array
+     */
+    public function __debugInfo() {
+        return [
+            'DatabaseTable'    => $this->table,
+            'NumberOfSalesmen' => $this->count(),
+            'SalesmanClass'    => $this->php_salesman_class
+        ];
+    }
 
     /**
      * @implements ContainerInterface
