@@ -40,10 +40,6 @@ build:
             environment:
                 php: 7.3
 
-        hhvm:
-            environment:
-                php: hhvm
-
 
 checks:
     php:
