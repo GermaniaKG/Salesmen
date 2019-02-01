@@ -164,8 +164,8 @@ echo iterator_count($filter);
 
 Also see [full issues list.][i0]
 
-[i0]: https://github.com/GermaniaKG/Salesmen/issues 
-[i1]: https://github.com/GermaniaKG/Salesmen/issues/1 
+[i0]: https://github.com/GermaniaKG/Salesmen/issues
+[i1]: https://github.com/GermaniaKG/Salesmen/issues/1
 
 ## Development
 
@@ -180,6 +180,8 @@ $ composer install
 Either copy `phpunit.xml.dist` to `phpunit.xml` and adapt to your needs, or leave as is. Run [PhpUnit](https://phpunit.de/) like this:
 
 ```bash
+$ composer test
+# or
 $ vendor/bin/phpunit
 ```
 
