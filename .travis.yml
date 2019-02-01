@@ -2,6 +2,9 @@
 
 language: php
 
+services:
+  - mysql
+
 php:
   - "7.0"
   - "7.1"
@@ -14,7 +17,6 @@ env:
 before_script:
   - rm composer.lock
   - composer self-update
-  # - composer install --no-interaction
   - composer install --prefer-source --no-interaction --dev
   - cp phpunit.xml.dist phpunit.xml
 
