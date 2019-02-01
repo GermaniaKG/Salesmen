@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "40182a5ad45e3845848ae8834b0cf3b8",
+    "content-hash": "391a00e1effdeb9a8bc9e1d3d6af682c",
     "packages": [
         {
             "name": "germania-kg/retailers",
@@ -2495,7 +2495,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^5.6|^7.0"
+        "php": "^7.0"
     },
     "platform-dev": []
 }

@@ -67,18 +67,6 @@ build:
                             file: 'coverage'
                             format: 'php-clover'
 
-        php56:
-            environment:
-                php: 5.6
-
-            tests:
-                override:
-                    -
-                        command: 'vendor/bin/phpunit --coverage-clover=coverage'
-                        coverage:
-                            file: 'coverage'
-                            format: 'php-clover'
-
         hhvm:
             environment:
                 php: hhvm
