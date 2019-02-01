@@ -16,7 +16,7 @@ build:
 
         override:
             -
-                command: 'composer test'
+                command: 'vendor/bin/phpunit --coverage-clover=coverage'
                 coverage:
                     file: 'coverage'
                     format: 'php-clover'
