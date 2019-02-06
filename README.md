@@ -1,6 +1,6 @@
 # Germania KG · Salesmen
 
-
+[![Packagist](https://img.shields.io/packagist/v/germania-kg/salesmen.svg?style=flat)](https://packagist.org/packages/germania-kg/salesmen)
 [![PHP version](https://img.shields.io/packagist/php-v/germania-kg/salesmen.svg)](https://packagist.org/packages/germania-kg/salesmen)
 [![Build Status](https://img.shields.io/travis/GermaniaKG/Salesmen.svg?label=Travis%20CI)](https://travis-ci.org/GermaniaKG/Salesmen)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/Salesmen/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Salesmen/?branch=master)
