@@ -4,11 +4,14 @@ namespace tests;
 use Germania\Salesmen\PdoAllSalesmen;
 use Germania\Salesmen\SalesmanInterface;
 use Germania\Salesmen\Exceptions\SalesmanNotFoundException;
+use Germania\Salesmen\Exceptions\SalesmanDatabaseException;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 class PdoAllSalesmenTest extends DatabaseTestCaseAbstract
 {
+    use MockPdoTrait;
+
 
     public $sut;
 
@@ -25,6 +28,20 @@ class PdoAllSalesmenTest extends DatabaseTestCaseAbstract
         $this->assertInstanceOf( \Countable::class, $this->sut);
         $this->assertInternalType("array", $this->sut->salesmen);
     }
+
+
+    public function testExceptionOnExecutionError(  )
+    {
+        $execution_result = false;
+        $stmt_mock = $this->createMockPdoStatement( $execution_result, array() );
+        $pdo_mock = $this->createMockPdo( $stmt_mock );
+        $this->expectException( SalesmanDatabaseException::class );
+        $sut = new PdoAllSalesmen( $pdo_mock, "salesmen");
+
+    }
+
+
+
 
 
     public function testTraversableInterface(  )
