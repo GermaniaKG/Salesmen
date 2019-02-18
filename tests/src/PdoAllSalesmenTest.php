@@ -3,6 +3,7 @@ namespace tests;
 
 use Germania\Salesmen\PdoAllSalesmen;
 use Germania\Salesmen\SalesmanInterface;
+use Germania\Salesmen\SalesmanIdProviderInterface;
 use Germania\Salesmen\Exceptions\SalesmanNotFoundException;
 use Germania\Salesmen\Exceptions\SalesmanDatabaseException;
 use Psr\Container\ContainerInterface;
@@ -61,14 +62,31 @@ class PdoAllSalesmenTest extends DatabaseTestCaseAbstract
     }
 
 
-
-    public function testContainerInterface(  )
+    /**
+     * @dataProvider provideSalesmanIdOrProvider
+     */
+    public function testContainerInterface( $salesman_id )
     {
-        // We know this from "salesmen-dataset.xml"
-        $salesman_id = 1;
         $this->assertTrue( $this->sut->has( $salesman_id ));
         $this->assertInstanceOf( SalesmanInterface::class, $this->sut->get( $salesman_id ) );
     }
+
+    public function provideSalesmanIdOrProvider()
+    {
+        // We know this from "salesmen-dataset.xml"
+        $salesman_id = 1;
+
+        $mock = $this->prophesize( SalesmanIdProviderInterface::class );
+        $mock->getSalesmanId()->willReturn( $salesman_id );
+        $salesman_id_provider = $mock->reveal();
+
+        return array(
+            [ $salesman_id ],
+            [ $salesman_id_provider]
+        );
+    }
+
+
 
 
     public function testNotFoundException(  )
