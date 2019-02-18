@@ -30,6 +30,12 @@ class PdoAllSalesmenTest extends DatabaseTestCaseAbstract
         $this->assertInternalType("array", $this->sut->salesmen);
     }
 
+    public function testDebugInfo(  )
+    {
+        $debug_info = $this->sut->__debugInfo();
+        $this->assertInternalType("array", $debug_info);
+    }
+
 
     public function testExceptionOnExecutionError(  )
     {
