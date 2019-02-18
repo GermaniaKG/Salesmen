@@ -3,12 +3,16 @@ namespace tests;
 
 use Germania\Salesmen\PdoAllSalesmen;
 use Germania\Salesmen\SalesmanInterface;
+use Germania\Salesmen\SalesmanIdProviderInterface;
 use Germania\Salesmen\Exceptions\SalesmanNotFoundException;
+use Germania\Salesmen\Exceptions\SalesmanDatabaseException;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 class PdoAllSalesmenTest extends DatabaseTestCaseAbstract
 {
+    use MockPdoTrait;
+
 
     public $sut;
 
@@ -25,6 +29,30 @@ class PdoAllSalesmenTest extends DatabaseTestCaseAbstract
         $this->assertInstanceOf( \Countable::class, $this->sut);
         $this->assertInternalType("array", $this->sut->salesmen);
     }
+
+    public function testDebugInfo(  )
+    {
+        $debug_info = $this->sut->__debugInfo();
+        $this->assertInternalType("array", $debug_info);
+        
+        $this->assertArrayHasKey('DatabaseTable',    $debug_info);
+        $this->assertArrayHasKey('NumberOfSalesmen', $debug_info);
+        $this->assertArrayHasKey('SalesmanClass',    $debug_info);
+    }
+
+
+    public function testExceptionOnExecutionError(  )
+    {
+        $execution_result = false;
+        $stmt_mock = $this->createMockPdoStatement( $execution_result, array() );
+        $pdo_mock = $this->createMockPdo( $stmt_mock );
+        $this->expectException( SalesmanDatabaseException::class );
+        $sut = new PdoAllSalesmen( $pdo_mock, "salesmen");
+
+    }
+
+
+
 
 
     public function testTraversableInterface(  )
@@ -44,14 +72,31 @@ class PdoAllSalesmenTest extends DatabaseTestCaseAbstract
     }
 
 
-
-    public function testContainerInterface(  )
+    /**
+     * @dataProvider provideSalesmanIdOrProvider
+     */
+    public function testContainerInterface( $salesman_id )
     {
-        // We know this from "salesmen-dataset.xml"
-        $salesman_id = 1;
         $this->assertTrue( $this->sut->has( $salesman_id ));
         $this->assertInstanceOf( SalesmanInterface::class, $this->sut->get( $salesman_id ) );
     }
+
+    public function provideSalesmanIdOrProvider()
+    {
+        // We know this from "salesmen-dataset.xml"
+        $salesman_id = 1;
+
+        $mock = $this->prophesize( SalesmanIdProviderInterface::class );
+        $mock->getSalesmanId()->willReturn( $salesman_id );
+        $salesman_id_provider = $mock->reveal();
+
+        return array(
+            [ $salesman_id ],
+            [ $salesman_id_provider]
+        );
+    }
+
+
 
 
     public function testNotFoundException(  )
