@@ -34,6 +34,10 @@ class PdoAllSalesmenTest extends DatabaseTestCaseAbstract
     {
         $debug_info = $this->sut->__debugInfo();
         $this->assertInternalType("array", $debug_info);
+        
+        $this->assertArrayHasKey('DatabaseTable',    $debug_info);
+        $this->assertArrayHasKey('NumberOfSalesmen', $debug_info);
+        $this->assertArrayHasKey('SalesmanClass',    $debug_info);
     }
 
 

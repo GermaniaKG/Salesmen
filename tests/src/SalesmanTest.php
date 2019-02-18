@@ -49,5 +49,18 @@ class SalesmanTest extends \PHPUnit\Framework\TestCase
 
     }
 
+    public function testDebugInfo(  )
+    {
+        $sut = new Salesman;
+        $debug_info = $sut->__debugInfo();
+        $this->assertInternalType("array", $debug_info);
+        
+        $this->assertArrayHasKey('SalesmanID',  $debug_info);
+        $this->assertArrayHasKey('FullName',    $debug_info);
+        $this->assertArrayHasKey('Email',       $debug_info);
+        $this->assertArrayHasKey('isActive',    $debug_info);
+        $this->assertArrayHasKey('UserID',      $debug_info);
+    }
+
 
 }
